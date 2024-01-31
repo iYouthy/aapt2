@@ -51,6 +51,12 @@ echogreen "Building"
 ninja -C $BUILDDIR -j$(nproc) || exit 1
 [ $? -eq 0 ] || { echored "Building failed!"; exit 1; }
 
+echo "-----------------"
+ls -al "$BUILDDIR/bin"
+echo "-----------------"
+ls -al "$BUILDDIR"
+echo "-----------------"
+
 AAPT2=$BUILDDIR/bin/libaapt2.so
 ZIPALIGN=$BUILDDIR/bin/libzipalign.so
 
