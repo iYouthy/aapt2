@@ -52,13 +52,11 @@ ninja -C $BUILDDIR -j$(nproc) || exit 1
 [ $? -eq 0 ] || { echored "Building failed!"; exit 1; }
 
 echo "-----------------"
-ls -al "$BUILDDIR/bin"
-echo "-----------------"
-ls -al "$BUILDDIR"
+ls -al "$BUILDDIR/cmake"
 echo "-----------------"
 
-AAPT2=$BUILDDIR/bin/libaapt2.so
-ZIPALIGN=$BUILDDIR/bin/libzipalign.so
+AAPT2=$BUILDDIR/cmake/libaapt2.so
+ZIPALIGN=$BUILDDIR/cmake/libzipalign.so
 
 $CLEAN --api-level $API $AAPT2
 $CLEAN --api-level $API $ZIPALIGN
