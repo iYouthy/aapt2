@@ -1,4 +1,4 @@
-add_library(zipalign STATIC
+add_library(zipalign SHARED
     ${SRC}/zipalign/ZipAlignMain.cpp
     ${SRC}/zipalign/ZipAlign.cpp
     ${SRC}/zipalign/ZipEntry.cpp
