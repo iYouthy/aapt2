@@ -36,7 +36,7 @@ if(DEFINED PROTOC_PATH)
     set_source_files_properties(${AAPT2_PROTO_HDRS} PROPERTIES GENERATED TRUE)
 endif()
 
-add_executable(aapt2
+add_library(aapt2 STATIC
     ${SRC}/base/tools/aapt2/Main.cpp
     ${SRC}/base/tools/aapt2/cmd/Command.cpp
     ${SRC}/base/tools/aapt2/cmd/Compile.cpp
