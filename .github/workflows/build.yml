@@ -82,10 +82,12 @@ jobs:
           TOOLS_PATH: ${{ github.workspace }}/tools
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: aapt2-${{ matrix.target_arch }}
-          path:
-            build/cmake
-            !build/cmake/CMakeFiles/*
-            !build/cmake/cmake_install.cmake
+          path: |
+            build/cmake/*.so
+            build/cmake/*.a
+            build/cmake/**/*.so
+            build/cmake/**/*.a
+          compression-level: 0
