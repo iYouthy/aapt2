@@ -90,4 +90,4 @@ jobs:
             build/cmake/*.a
             build/cmake/**/*.so
             build/cmake/**/*.a
-          compression-level: 0
+          compression-level: 9
