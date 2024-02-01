@@ -12,3 +12,6 @@ _deps
 
 build/
 dist/
+
+.idea
+cmake-build-debug

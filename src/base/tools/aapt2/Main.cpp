@@ -177,7 +177,7 @@ int MainImpl(int argc, char** argv) {
   return main_command.Execute(args, &std::cerr);
 }
 
-int main(int argc, char** argv) {
+int aapt2(int argc, char** argv) {
 #ifdef _WIN32
   LPWSTR* wide_argv = CommandLineToArgvW(GetCommandLineW(), &argc);
   CHECK(wide_argv != nullptr) << "invalid command line parameters passed to process";

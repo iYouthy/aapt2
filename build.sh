@@ -54,13 +54,26 @@ ninja -C $BUILDDIR -j$(nproc) || exit 1
 echo "-----------------"
 ls -al "$BUILDDIR/cmake"
 echo "-----------------"
+ls -al "$BUILDDIR/cmake/third_party"
+echo "-----------------"
 
 AAPT2=$BUILDDIR/cmake/libaapt2.so
+if [ -d $AAPT2 ]; then
+    echo "libaapt2.so exists."
+else
+    echo "libaapt2.so does not exist."
+fi
+
 ZIPALIGN=$BUILDDIR/cmake/libzipalign.so
+if [ -d $ZIPALIGN ]; then
+    echo "libzipalign.so exists."
+else
+    echo "libzipalign.so does not exist."
+fi
 
 $CLEAN --api-level $API $AAPT2
 $CLEAN --api-level $API $ZIPALIGN
-$STRIP --strip-all $AAPT2
-$STRIP --strip-all $ZIPALIGN
+#$STRIP --strip-all $AAPT2
+#$STRIP --strip-all $ZIPALIGN
 
 [ $? -eq 0 ] && { echogreen "aapt2 and zipalign binary built sucessfully"; }

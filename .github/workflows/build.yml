@@ -85,4 +85,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: aapt2-${{ matrix.target_arch }}
-          path: build/bin
+          path: build/cmake
+          exclude:
+            ./CMakeFiles/*
+            ./cmake_install.cmake
