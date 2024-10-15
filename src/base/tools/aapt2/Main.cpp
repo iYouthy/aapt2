@@ -82,7 +82,7 @@ private:
     std::string buffer_;
     std::string tag_;
     android_LogPriority priority_;
-}
+};
 
 /** Prints the version information of AAPT2. */
 class VersionCommand : public Command {
