@@ -213,7 +213,7 @@ int MainImpl(int argc, char** argv) {
   main_command.AddOptionalSubcommand(
       aapt::util::make_unique<aapt::DaemonCommand>(&fout, &diagnostics));
 
-  LogcatStreamBuf logcatBuf("MyAppTag", ANDROID_LOG_DEBUG);
+  aapt::LogcatStreamBuf logcatBuf("MyAppTag", ANDROID_LOG_DEBUG);
   std::ostream logcatStream(&logcatBuf);
   return main_command.Execute(args, &logcatStream);
 }
