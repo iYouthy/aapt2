@@ -64,8 +64,9 @@ jobs:
           
       - name: Setup elf-cleaner
         run: |
-          git clone --depth 1 https://github.com/termux/termux-elf-cleaner.git src/third_party/elf-cleaner
+          git clone https://github.com/termux/termux-elf-cleaner.git src/third_party/elf-cleaner
           cd src/third_party/elf-cleaner || exit 1
+          git checkout 7efc05090675ec6161b7def862728086a26c3b1f
           autoreconf -vfi
           ./configure
           make -j$(nproc)
