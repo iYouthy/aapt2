@@ -174,7 +174,10 @@ int MainImpl(int argc, char** argv) {
   // Add the daemon subcommand here so it cannot be called while executing the daemon
   main_command.AddOptionalSubcommand(
       aapt::util::make_unique<aapt::DaemonCommand>(&fout, &diagnostics));
-  return main_command.Execute(args, &std::cerr);
+
+  LogcatStreamBuf logcatBuf("MyAppTag", ANDROID_LOG_DEBUG);
+  std::ostream logcatStream(&logcatBuf);
+  return main_command.Execute(args, &logcatStream);
 }
 
 int aapt2(int argc, char** argv) {
