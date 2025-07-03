@@ -121,10 +121,6 @@ add_library(aapt2 SHARED
         ${SRC}/base/tools/aapt2/ValueTransformer.cpp
         ${AAPT2_PROTO_SRC} ${AAPT2_PROTO_HDRS})
 
-# Support 16 KB page sizes
-# https://developer.android.com/guide/practices/page-sizes?hl=zh-cn#cmake
-target_link_options(${CMAKE_PROJECT_NAME} PRIVATE "-Wl,-z,max-page-size=16384")
-
 target_include_directories(aapt2
         PUBLIC
         ${SRC}/base/tools/aapt2
@@ -150,3 +146,7 @@ target_compile_options(aapt2 PRIVATE
 target_link_libraries(aapt2
         libbase libutils libcutils liblog libandroidfw libziparchive
         libincfs libprotobuf libpng libexpat libz)
+
+# Support 16 KB page sizes
+# https://developer.android.com/guide/practices/page-sizes?hl=zh-cn#cmake
+target_link_options(${CMAKE_PROJECT_NAME} PRIVATE "-Wl,-z,max-page-size=16384")
