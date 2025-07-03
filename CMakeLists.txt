@@ -34,5 +34,9 @@ set(SRC ${PROJECT_SOURCE_DIR}/src)
 add_subdirectory(src/third_party/zopfli EXCLUDE_FROM_ALL)
 add_subdirectory(src/third_party/fmtlib EXCLUDE_FROM_ALL)
 
+# Support 16 KB page sizes
+# https://developer.android.com/guide/practices/page-sizes?hl=zh-cn#cmake
+target_link_options(${CMAKE_PROJECT_NAME} PRIVATE "-Wl,-z,max-page-size=16384")
+
 # Building
 add_subdirectory(cmake)
