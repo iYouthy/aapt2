@@ -52,7 +52,7 @@ add_library(aapt2 SHARED
         ${SRC}/base/tools/aapt2/compile/Png.cpp
         ${SRC}/base/tools/aapt2/compile/PngChunkFilter.cpp
         ${SRC}/base/tools/aapt2/compile/PngCrunch.cpp
-        ${SRC}/base/tools/aapt2/compile/PseudolocaleGenerator.cpp
+        ${SRC}/base/tools/aapt2/compile/Pseudoloca
         ${SRC}/base/tools/aapt2/compile/Pseudolocalizer.cpp
         ${SRC}/base/tools/aapt2/compile/XmlIdCollector.cpp
         ${SRC}/base/tools/aapt2/configuration/ConfigurationParser.cpp
@@ -120,6 +120,10 @@ add_library(aapt2 SHARED
         ${SRC}/base/tools/aapt2/xml/XmlUtil.cpp
         ${SRC}/base/tools/aapt2/ValueTransformer.cpp
         ${AAPT2_PROTO_SRC} ${AAPT2_PROTO_HDRS})
+
+# Support 16 KB page sizes
+# https://developer.android.com/guide/practices/page-sizes?hl=zh-cn#cmake
+target_link_options(${CMAKE_PROJECT_NAME} PRIVATE "-Wl,-z,max-page-size=16384")
 
 target_include_directories(aapt2
         PUBLIC
